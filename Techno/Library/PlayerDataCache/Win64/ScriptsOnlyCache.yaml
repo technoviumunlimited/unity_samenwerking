@@ -1,10 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - robotController
-    - robotInstructions
+    - Button
+    - Hexagon1
+    - LevelMagiger
+    - PlayerControler
+    - RobotControler
+    - SetRobotStartPosition
+    - Tutchbutton
     Unity.InputSystem.dll:
-    - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
@@ -15,14 +19,14 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelinePreferences
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -30,10 +34,8 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
   serializedClasses:
     Unity.InputSystem:
@@ -53,463 +55,171 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
-    - TMPro.VertexGradient
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.Events.UnityEvent
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
-    - UnityEngine.UI.AnimationTriggers
-    - UnityEngine.UI.Button/ButtonClickedEvent
-    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-    - UnityEngine.UI.Navigation
-    - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: onFinichPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnMovePrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnResetPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnPlayPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnJumpPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: onFinichPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnMovePrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnResetPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnPlayPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnJumpPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: onFinichPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnMovePrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnResetPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnPlayPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnJumpPrest
+    fullTypeName: RobotControler
+    methodName: OnPlaye
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: onFinichPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnMovePrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnResetPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnPlayPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnJumpPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: onFinichPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnMovePrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnResetPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnPlayPrest
-  - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
+    fullTypeName: Hexagon1
     methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: robotInstructions
-    methodName: OnJumpPrest
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: RobotControler
+    methodName: ResetInstructions
   sceneClasses:
-    Assets/Scenes/SampleScene 1.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1674}
-    - Class: 114
-      Script: {instanceID: 2574}
-    - Class: 114
-      Script: {instanceID: 2956}
-    - Class: 114
-      Script: {instanceID: 3206}
-    - Class: 114
-      Script: {instanceID: 3572}
-    - Class: 114
-      Script: {instanceID: 6128}
-    - Class: 114
-      Script: {instanceID: 6854}
-    - Class: 114
-      Script: {instanceID: 7052}
-    - Class: 114
-      Script: {instanceID: 7266}
-    - Class: 114
-      Script: {instanceID: 7464}
-    - Class: 114
-      Script: {instanceID: 7658}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 154
-      Script: {instanceID: 0}
-    - Class: 156
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 218
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene 2.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1674}
-    - Class: 114
-      Script: {instanceID: 2574}
-    - Class: 114
-      Script: {instanceID: 2956}
-    - Class: 114
-      Script: {instanceID: 3206}
-    - Class: 114
-      Script: {instanceID: 3572}
-    - Class: 114
-      Script: {instanceID: 6128}
-    - Class: 114
-      Script: {instanceID: 6854}
-    - Class: 114
-      Script: {instanceID: 7052}
-    - Class: 114
-      Script: {instanceID: 7266}
-    - Class: 114
-      Script: {instanceID: 7464}
-    - Class: 114
-      Script: {instanceID: 7658}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 154
-      Script: {instanceID: 0}
-    - Class: 156
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 218
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene 3.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1674}
-    - Class: 114
-      Script: {instanceID: 2574}
-    - Class: 114
-      Script: {instanceID: 2956}
-    - Class: 114
-      Script: {instanceID: 3206}
-    - Class: 114
-      Script: {instanceID: 3572}
-    - Class: 114
-      Script: {instanceID: 6128}
-    - Class: 114
-      Script: {instanceID: 6854}
-    - Class: 114
-      Script: {instanceID: 7052}
-    - Class: 114
-      Script: {instanceID: 7266}
-    - Class: 114
-      Script: {instanceID: 7464}
-    - Class: 114
-      Script: {instanceID: 7658}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 154
-      Script: {instanceID: 0}
-    - Class: 156
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 218
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene 4.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1674}
-    - Class: 114
-      Script: {instanceID: 2574}
-    - Class: 114
-      Script: {instanceID: 2956}
-    - Class: 114
-      Script: {instanceID: 3206}
-    - Class: 114
-      Script: {instanceID: 3572}
-    - Class: 114
-      Script: {instanceID: 6128}
-    - Class: 114
-      Script: {instanceID: 6854}
-    - Class: 114
-      Script: {instanceID: 7052}
-    - Class: 114
-      Script: {instanceID: 7266}
-    - Class: 114
-      Script: {instanceID: 7464}
-    - Class: 114
-      Script: {instanceID: 7658}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 154
-      Script: {instanceID: 0}
-    - Class: 156
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 218
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Level1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -530,11 +240,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -549,50 +265,50 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1674}
+      Script: {instanceID: 2136}
     - Class: 114
-      Script: {instanceID: 2422}
+      Script: {instanceID: 2426}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2578}
     - Class: 114
-      Script: {instanceID: 2956}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3206}
+      Script: {instanceID: 3210}
     - Class: 114
-      Script: {instanceID: 3572}
+      Script: {instanceID: 4798}
     - Class: 114
-      Script: {instanceID: 4880}
+      Script: {instanceID: 4888}
     - Class: 114
-      Script: {instanceID: 5212}
+      Script: {instanceID: 5134}
     - Class: 114
-      Script: {instanceID: 6128}
+      Script: {instanceID: 5220}
     - Class: 114
-      Script: {instanceID: 6854}
+      Script: {instanceID: 6138}
     - Class: 114
-      Script: {instanceID: 7052}
+      Script: {instanceID: 6750}
     - Class: 114
-      Script: {instanceID: 7266}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 7464}
+      Script: {instanceID: 7068}
     - Class: 114
-      Script: {instanceID: 7658}
+      Script: {instanceID: 7480}
+    - Class: 114
+      Script: {instanceID: 8122}
+    - Class: 114
+      Script: {instanceID: 8492}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
-    - Class: 154
-      Script: {instanceID: 0}
-    - Class: 156
+    - Class: 143
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 218
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -603,16 +319,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UIElements
-    className: PanelRaycaster
-  - hash:
-      serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UIElements
+    className: PanelRaycaster
   - hash:
       serializedVersion: 2
       Hash: c24a778d9aa393e11e54bff320ca63de
@@ -703,6 +419,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: 
     className: CinemachineCameraOffset
+  - hash:
+      serializedVersion: 2
+      Hash: 774c1c08aaa274604a22ee94479fd0fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerControler
   - hash:
       serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
@@ -1131,6 +853,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: 8dbeda1c003e87716dc9f9a988513055
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RobotControler
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1185,12 +913,6 @@ ScriptsOnlyBuild:
     className: DictionaryAsset
   - hash:
       serializedVersion: 2
-      Hash: 923fc58234ef8a9c940f2b3b57523dd4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerControler
-  - hash:
-      serializedVersion: 2
       Hash: 56df1fa7cea034df9863fe5a24200a32
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1207,6 +929,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.OnScreen
     className: OnScreenStick
+  - hash:
+      serializedVersion: 2
+      Hash: f772ff34ec6609c1c257d840a3d223dd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelMagiger
   - hash:
       serializedVersion: 2
       Hash: af93f9c42e90877a9ba31e37adfd900c
@@ -1473,6 +1201,12 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
+      Hash: 7bfcf5591f0674e84845f856abb10a9d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Tutchbutton
+  - hash:
+      serializedVersion: 2
       Hash: 639df67a034e1312464f0bf890c2f14e
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1521,10 +1255,10 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: cd61f3e566b3a5534b9f152bc528ae7c
+      Hash: b43454ee94b1b272c7a2ffb07ce9fe2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: robotController
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1585,12 +1319,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: PlayerInputEditor
-  - hash:
-      serializedVersion: 2
-      Hash: 693f443281f1dd4e407d727c0684e82c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: robotInstructions
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1663,6 +1391,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: cec8219c31e5848b3208111839a823ca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Hexagon1
   - hash:
       serializedVersion: 2
       Hash: 8963690ef6f6b05ce03bfd8b5c26e20c
@@ -1747,6 +1481,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: ab5f0d7fded5fa130b4663fd8f7b22d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SetRobotStartPosition
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1917,9 +1657,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  - Assets/Scenes/SampleScene 1.unity
-  - Assets/Scenes/SampleScene 2.unity
-  - Assets/Scenes/SampleScene 3.unity
-  - Assets/Scenes/SampleScene 4.unity
-  playerPath: C:/Users/Tilo/Desktop/unity_samenwerking/Bults/MonoBleedingEdge/Techno.exe
+  - Assets/Scenes/Level1.unity
+  playerPath: C:/Users/tilow/Documents/GitHub/unity_samenwerking/Bults/2.4/Techno.exe
