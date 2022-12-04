@@ -11,8 +11,11 @@ public class RobotControler : MonoBehaviour
     public float maxJumpHeight;
     public float timeBetweenAction;
     public AudioClip[] audioClip; // 1 Finich, 2 walk, 3 jump, 4 error
-
-
+    public GetControl getControl;
+    public SetControl setControl;
+    public TimeDisplay timeDisplay;
+    
+    
     public LayerMask layerMask;
     
 
@@ -48,7 +51,7 @@ public class RobotControler : MonoBehaviour
         robotFinich = new RobotFinich();
         RobInstructions = new RobInstructions();
 
-        levelMagiger = GameObject.Find("Maniger").GetComponent<LevelMagiger>();
+        levelMagiger = GameObject.Find("LevelManiger").GetComponent<LevelMagiger>();
         animator = GetComponent<Animator>();
         
 
@@ -153,18 +156,18 @@ public class RobotControler : MonoBehaviour
     }
 
     public IEnumerator TimeForAction()
-   {    
+    {    
         yield return new WaitForSeconds(timeForAction);
         framesCount = 0;
         OnChangeFunction("Idle");
         SetBasis();
-        transform.position = new Vector3(transform.position.x,robotJump.HeightObjectBelow() ,transform.position.z);
+        // transform.position = new Vector3(transform.position.x,robotJump.HeightObjectBelow() ,transform.position.z);
         yield return new WaitForSeconds(timeBetweenAction);
         RobInstructions.HandelPlay();
 
-   }
-   void SetBasis()
-   {
+    }
+    void SetBasis()
+    {
 
         Vector3 rot = new Vector3();
         rot.x = (int)transform.rotation.eulerAngles.x;
@@ -172,14 +175,14 @@ public class RobotControler : MonoBehaviour
         rot.z = (int)transform.rotation.eulerAngles.z;
         transform.rotation = Quaternion.Euler(rot);
 
-   }
+    }
 
     bool IsWalkable()
     {
         
         if(!(!IsSomethingFront() && IsSomethingBelowFront(0.5f)))
         {
-             PlayAudio(audioClip[3]);
+            PlayAudio(audioClip[3]);
         }
         return !IsSomethingFront() && IsSomethingBelowFront(0.5f);
 
@@ -226,13 +229,23 @@ public class RobotControler : MonoBehaviour
         RobInstructions.ResetInstructions();
     }
 
-   public void PlayAudio(AudioClip clip)
+    public void OnResetCompleed()
     {
-       var Audio = gameObject.AddComponent<AudioSource>();
-       Audio.clip = clip;
-       Audio.pitch = 1/timeForAction;
-       Audio.Play();
-       Destroy(Audio,timeForAction);
+        RobInstructions.ResetInstructions();
+        timeDisplay.curentTime = 0;
+        LevelMagiger.allLeffelsCompleed = true;
+        levelMagiger.curentLevelInt = -1;
+        levelMagiger.OnChangeLefel();
+
+    }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        var Audio = gameObject.AddComponent<AudioSource>();
+        Audio.clip = clip;
+        Audio.pitch = 1/timeForAction;
+        Audio.Play();
+        Destroy(Audio,timeForAction);
     }
 
 }

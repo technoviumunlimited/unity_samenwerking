@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 97cf327d6fa991b46ae46ec9ca58768d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rotationPannel: {fileID: 1670650909519799254, guid: 6e0cf1d30fa79cf4d9822da96f80683a, type: 3}
+  - startLocation: {instanceID: 0}
+  - robotControler: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

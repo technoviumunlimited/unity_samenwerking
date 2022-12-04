@@ -12,6 +12,7 @@ public class RobInstructions
     int curentInstruction =0;
     int instructionsCount;
 
+
     Vector3 startPosition;
     Quaternion startRotation;
 
@@ -22,7 +23,8 @@ public class RobInstructions
     }
 
     public void ResetInstructions()
-    {
+    {   
+        instructionsCount=0;
         instructions = new List<Instructions>();
         rbc.animator.SetInteger("CurentState",0 );
         Hexagon1.isResetting = true;
@@ -33,19 +35,34 @@ public class RobInstructions
 
     public void OnChangeInstruction(int i, string _Name)
     {
-        if(i  -1>= instructions.Count)
+    
+        if(instructions.Count < rbc.getControl.NUMBER_OF_COLOMS * rbc.getControl.NUMBER_OF_ROWS)
         {
             instructions.Add(new Instructions(_Name));
+
+            
         }
         else 
-        {
+        {   
+            
+            if( _Name !="Emty")
+            {
+                if(LevelMagiger.allLeffelsCompleed == true) LevelMagiger.allLeffelsCompleed = false;
+                if(instructions[i-1].Name == "Emty" ) instructionsCount ++;
+                
+            }
+            else if( instructions[i-1].Name != "Emty" &&_Name == "Emty")instructionsCount --;
+            
             instructions[i -1].Name = _Name; 
         }
+
     }
+
+                
 
     public void OnPlayPrest()
     {
-        if(!isPlayeing)
+        if(!isPlayeing && instructionsCount > 0 )
         {
             HandelPlay();
             isPlayeing = true;
@@ -56,11 +73,24 @@ public class RobInstructions
     }
 
     public void HandelPlay()
-    {
-        if((curentInstruction <  instructions.Count)) // x tijdelijk
-        {        
+    {   
+        Debug.Log(instructions.Count);
+
+        while(instructions[curentInstruction].Name == "Emty") 
+        {
+            curentInstruction++;
+            if(!(curentInstruction <  instructions.Count ) ) /////////////////////////////////////////////////big error last control hexsagon oud of range - 1 cwick fics 
+            {   
+                break;
+            }
+        }
+            
+        if((curentInstruction <  instructions.Count)) 
+        {    
+            rbc.setControl.controlPannels[curentInstruction].GetComponent<ParticleSystem>().Play();
             rbc.OnChangeFunction(instructions[curentInstruction].Name);
             curentInstruction++; 
+            
         }
         else
         {   

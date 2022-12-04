@@ -10,9 +10,9 @@ public class RobotJump
     public void HandelJump()
     {  
         float numberOfFremsToDessertDestination = rbc.NUMBER_OF_FRAMS_IN_FIXED_UPDATE * rbc.timeForAction;
-   
+
         rbc.framesCount++;
-       
+
         if (rbc.framesCount >= numberOfFremsToDessertDestination || rbc.transform.position.y <= HeightObjectBelow() && rbc.framesCount >= numberOfFremsToDessertDestination / 2)
         {
             rbc.transform.position = new Vector3(rbc.transform.position.x,HeightObjectBelow(),rbc.transform.position.z);
@@ -25,17 +25,16 @@ public class RobotJump
             float NextYHight =(-Mathf.Pow((StartValu +((-StartValu * 2) / numberOfFremsToDessertDestination) *rbc.framesCount),2) +rbc.maxJumpHeight) *rbc.scaleMultiplier; // Formule: https://www.geogebra.org/classic/gg8vqdys
             rbc.transform.position = new Vector3(rbc.transform.position.x,NextYHight + startY , rbc.transform.position.z);
         }
-      
     }
 
     public float HeightObjectBelow()
     {   
-       
-        RaycastHit hit;
-        Physics.Raycast(rbc.transform.position + new Vector3(0, 1, 0) * rbc.scaleMultiplier ,-rbc.transform.up ,out hit ,rbc.maxJumpHeight  * rbc.scaleMultiplier ,rbc.layerMask);
 
+        RaycastHit hit;
+        Physics.Raycast(rbc.transform.position + new Vector3(0, 1, 0) * rbc.scaleMultiplier ,-rbc.transform.up ,out hit ,(rbc.maxJumpHeight+2)  * rbc.scaleMultiplier ,rbc.layerMask);
         return rbc.transform.position.y - hit.distance + 1 *rbc.scaleMultiplier;
     }
 
 }
+
 
