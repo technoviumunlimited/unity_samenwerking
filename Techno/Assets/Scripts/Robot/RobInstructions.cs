@@ -7,21 +7,21 @@ public class RobInstructions
     RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
     List<Instructions> instructions = new List<Instructions>();
     
-    bool isPlayeing = false;
+    public static bool  isPlayeing = false;
 
     int curentInstruction =0;
     int instructionsCount;
 
 
-    Vector3 startPosition;
-    Quaternion startRotation;
+    public Vector3 startPosition;
+    public Quaternion startRotation;
 
 
     public void Awake()
     {   
         ResetInstructions();
-    }
 
+    }
     public void ResetInstructions()
     {   
         instructionsCount=0;
@@ -30,7 +30,7 @@ public class RobInstructions
         Hexagon1.isResetting = true;
         rbc.transform.position = startPosition;
         rbc.transform.rotation = startRotation;
-        
+        isPlayeing = false;
     }
 
     public void OnChangeInstruction(int i, string _Name)
@@ -68,25 +68,40 @@ public class RobInstructions
             isPlayeing = true;
             startPosition = rbc.transform.position;
             startRotation = rbc.transform.rotation;
+            rbc.robotJump.startY = rbc.transform.position.y;
         }
 
     }
 
     public void HandelPlay()
     {   
-        Debug.Log(instructions.Count);
 
-        while(instructions[curentInstruction].Name == "Emty") 
-        {
-            curentInstruction++;
-            if(!(curentInstruction <  instructions.Count ) ) /////////////////////////////////////////////////big error last control hexsagon oud of range - 1 cwick fics 
-            {   
-                break;
-            }
-        }
+     
             
         if((curentInstruction <  instructions.Count)) 
-        {    
+        {       
+
+                try
+                {
+                    while(instructions[curentInstruction].Name == "Emty") 
+                        {
+                        
+                        if(curentInstruction >=  instructions.Count) 
+                        {   
+                            rbc.transform.position = startPosition;
+                            rbc.transform.rotation = startRotation;
+                            isPlayeing = false;
+                            curentInstruction=0;
+                            return;
+                        }
+                        else curentInstruction++;
+                    }
+                }
+                catch
+                {
+                    Debug.LogError("Oud of range");
+                }
+
             rbc.setControl.controlPannels[curentInstruction].GetComponent<ParticleSystem>().Play();
             rbc.OnChangeFunction(instructions[curentInstruction].Name);
             curentInstruction++; 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class RobotControler : MonoBehaviour
@@ -63,10 +64,18 @@ public class RobotControler : MonoBehaviour
         
         RobInstructions.Awake();
     }   
+    void Start() 
+    {
+        RobInstructions.startPosition = transform.position;
+        RobInstructions.startRotation = transform.rotation;
+    }
 
+    Vector3 lastPosition;
     void FixedUpdate()
     {
         SwitchFunctions();
+        Debug.DrawLine(lastPosition , transform.position, Color.red,5);
+        lastPosition = transform.position;
     }
 
     public void OnChangeFunction(string NextFunction)
@@ -216,6 +225,7 @@ public class RobotControler : MonoBehaviour
 
     public void OnPlaye()
     {
+        robotJump.startY = transform.position.y;
         RobInstructions.OnPlayPrest();
     }
 
@@ -229,21 +239,17 @@ public class RobotControler : MonoBehaviour
         RobInstructions.ResetInstructions();
     }
 
-    public void OnResetCompleed()
-    {
-        RobInstructions.ResetInstructions();
-        timeDisplay.curentTime = 0;
-        LevelMagiger.allLeffelsCompleed = true;
-        levelMagiger.curentLevelInt = -1;
-        levelMagiger.OnChangeLefel();
 
+    public void OnResetCompleed()
+    {   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayAudio(AudioClip clip)
     {
         var Audio = gameObject.AddComponent<AudioSource>();
         Audio.clip = clip;
-        Audio.pitch = 1/timeForAction;
+        Audio.pitch = 1/timeForAction;  
         Audio.Play();
         Destroy(Audio,timeForAction);
     }

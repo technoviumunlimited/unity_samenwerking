@@ -7,10 +7,12 @@ ScriptsOnlyBuild:
     - Hexagon1
     - LevelMagiger
     - Levels
+    - MousClick
     - PlayerControler
     - RobotControler
     - SetControl
     - SetRobotStartPosition
+    - StateSwitcher
     - TimeDisplay
     - Tutchbutton
     Unity.InputSystem.dll:
@@ -25,6 +27,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - TimelinePreferences
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -93,9 +97,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: RobotControler
     methodName: OnPlaye
-  - assembly: Assembly-CSharp
-    fullTypeName: Hexagon1
-    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
     fullTypeName: Hexagon1
     methodName: OnTurnPrest
@@ -234,6 +235,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Hexagon1
     methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   sceneClasses:
     Assets/Scenes/Level1.unity:
     - Class: 1
@@ -281,49 +285,53 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2138}
+      Script: {instanceID: 11980}
     - Class: 114
-      Script: {instanceID: 2428}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 2964}
+      Script: {instanceID: 12772}
     - Class: 114
-      Script: {instanceID: 3214}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 4800}
+      Script: {instanceID: 13320}
     - Class: 114
-      Script: {instanceID: 4804}
+      Script: {instanceID: 14112}
     - Class: 114
-      Script: {instanceID: 4894}
+      Script: {instanceID: 14886}
     - Class: 114
-      Script: {instanceID: 5140}
+      Script: {instanceID: 14890}
     - Class: 114
-      Script: {instanceID: 5226}
+      Script: {instanceID: 14974}
     - Class: 114
-      Script: {instanceID: 6144}
+      Script: {instanceID: 14980}
     - Class: 114
-      Script: {instanceID: 6756}
+      Script: {instanceID: 15226}
     - Class: 114
-      Script: {instanceID: 6872}
+      Script: {instanceID: 15312}
     - Class: 114
-      Script: {instanceID: 7070}
+      Script: {instanceID: 16216}
     - Class: 114
-      Script: {instanceID: 7074}
+      Script: {instanceID: 16688}
     - Class: 114
-      Script: {instanceID: 7486}
+      Script: {instanceID: 16824}
     - Class: 114
-      Script: {instanceID: 7784}
+      Script: {instanceID: 16940}
     - Class: 114
-      Script: {instanceID: 8132}
+      Script: {instanceID: 17134}
     - Class: 114
-      Script: {instanceID: 8502}
+      Script: {instanceID: 17138}
     - Class: 114
-      Script: {instanceID: 39838}
+      Script: {instanceID: 17546}
     - Class: 114
-      Script: {instanceID: 75768}
+      Script: {instanceID: 17842}
+    - Class: 114
+      Script: {instanceID: 18188}
+    - Class: 114
+      Script: {instanceID: 18554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -351,16 +359,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: c24a778d9aa393e11e54bff320ca63de
@@ -397,6 +405,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: Grain
+  - hash:
+      serializedVersion: 2
+      Hash: db450baacf1cd61069fe686ac481a76b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StateSwitcher
   - hash:
       serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
@@ -765,6 +779,12 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 1f5235880506c2fda42693ae6207d8d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataPersistenceManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -931,6 +951,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MousClick
   - hash:
       serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
@@ -1213,6 +1239,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 82a394ea8618f1294c6b804a0a84107c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeDisplay
   - hash:
       serializedVersion: 2
       Hash: d85b490177c3124d2335460060a2b807
@@ -1705,19 +1737,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 82a394ea8618f1294c6b804a0a84107c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TimeDisplay
-  - hash:
-      serializedVersion: 2
-      Hash: 1f5235880506c2fda42693ae6207d8d6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DataPersistenceManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level1.unity
-  playerPath: C:/Users/Tilo/Desktop/unity_samenwerking/Bults/2.4/Techno.exe
+  playerPath: C:/Users/tilow/Documents/GitHub/unity_samenwerking/Bults/2.5/Techno.exe

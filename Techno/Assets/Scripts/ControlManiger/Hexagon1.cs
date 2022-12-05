@@ -51,8 +51,8 @@ public class Hexagon1 : MonoBehaviour
 
     public void OnTurnPrest(int _Derection)
     {
-        if(!isTurning && !isResetting) 
-        {   
+        if(!isTurning && !isResetting && RobInstructions.isPlayeing == false) 
+        {   audioSource.Play();
             derection = _Derection;
             isTurning = true;
             StartCoroutine(HandelActionState());
@@ -73,7 +73,7 @@ public class Hexagon1 : MonoBehaviour
     void HandelHexagon()
     {   
         transform.localRotation = CalculatesQuaternion(transform.localRotation);
-        audioSource.Play();
+        
     }
     
     void HandelReset()

@@ -9,7 +9,9 @@ public class GameData
 
     public GameData()
     { 
-        this.fastisTime =0;
+        this.fastisTime = Mathf.Infinity;
+
+        //fastis = 95.5
     }
     
 }

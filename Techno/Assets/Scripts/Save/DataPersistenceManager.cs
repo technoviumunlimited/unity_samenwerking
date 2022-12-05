@@ -35,6 +35,10 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
+    private void Update() 
+    {
+        if(LevelMagiger.allLeffelsCompleed == true) SaveGame();
+    }
     
 
     public void NewGame()
@@ -75,8 +79,5 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPerisitans>(dataPersistenceObjects);
     }
 
-    void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+   
 }
