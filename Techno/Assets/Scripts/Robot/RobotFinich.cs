@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RobotFinich
 {
-    RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
-
+    public RobotControler rbc;
 
     public void OnFinich()
     {
@@ -14,7 +13,7 @@ public class RobotFinich
         {
             if(hit.collider.tag == "Finich")
             {   
-                rbc.RobInstructions.ResetInstructions();
+                rbc.robInstructions.ResetInstructions();
                 rbc.levelMagiger.OnChangeLefel();
                 rbc.PlayAudio(rbc.audioClip[0]);
             }

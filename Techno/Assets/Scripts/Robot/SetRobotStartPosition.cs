@@ -5,9 +5,13 @@ using UnityEngine;
 public class SetRobotStartPosition : MonoBehaviour
 {
     public Transform startPosition;
+    public int moveDistance = 1;
     void Start()
     {
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = startPosition.position;
+        var player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.localPosition = startPosition.position;
+        //player.GetComponent<RobotControler>().moveDistance = moveDistance;
+        
     }
 
 

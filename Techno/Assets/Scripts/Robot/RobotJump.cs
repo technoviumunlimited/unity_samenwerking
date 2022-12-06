@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotJump 
 {
-    RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
+    public RobotControler rbc;
     public float startY = 0;
     
     public void HandelJump()

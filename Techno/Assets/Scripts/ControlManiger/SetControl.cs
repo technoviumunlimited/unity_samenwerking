@@ -10,9 +10,11 @@ public class SetControl : MonoBehaviour
 {
 
     public  List<GameObject> controlPannels=new List<GameObject>();
+    public RobotControler robotControler;
 
 }
 #if UNITY_EDITOR
+
 
 [CustomEditor(typeof(SetControl))]
 class SetControlEditor: Editor 
@@ -29,6 +31,7 @@ class SetControlEditor: Editor
 
             
             GetControl getControl = setControl.GetComponent<GetControl>();
+            setControl.robotControler = GameObject.Find("Jammo").GetComponent<RobotControler>();
 
             if(setControl.controlPannels.Count > 0)
             {   
@@ -36,13 +39,13 @@ class SetControlEditor: Editor
                 {
                     DestroyImmediate(setControl.controlPannels[i]);
                 }
-
                 setControl.controlPannels = new List<GameObject>();
             }
         
             for (int i = 0; i < getControl.NUMBER_OF_COLOMS; i++)
             {
                     Vector3 ColomOfset = -getControl.startLocation.transform.forward *getControl.colomOfset * (i -1);
+                    
                 for (int y = 0; y < getControl.NUMBER_OF_ROWS; y++)
                 {   
                     
@@ -52,7 +55,7 @@ class SetControlEditor: Editor
                     obj.transform.SetParent(setControl.transform);
                     hex.timeForRotation = getControl.timeForTurn;
                     hex.CurentActionControler = setControl.controlPannels.Count +1;
-                    hex.robotControler = getControl.robotControler;
+                    hex.robotControler = setControl.robotControler;
                     setControl.controlPannels.Add(obj);
                     
                 }

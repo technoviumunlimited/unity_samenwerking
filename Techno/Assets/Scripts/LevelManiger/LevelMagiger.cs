@@ -4,33 +4,29 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 # endif
-//
 
 
 [ExecuteInEditMode]
 public class LevelMagiger : MonoBehaviour
 {
     public Transform instantiateLocation;
-
-    [HideInInspector]public int curentLevelInt = 0;
-
-
     public GameObject curentLevelGameObject;
-    public Levels levels;
-
+    Levels levels;
+    [HideInInspector]public int curentLevelInt = 0;
     public static bool allLeffelsCompleed;
 
 
     void Awake()
     {
         allLeffelsCompleed = true;
+        levels = GetComponent<Levels>();
     }
 
 
     public void OnChangeLefel()
     {
         
-        levels = GetComponent<Levels>();
+        
         if(curentLevelGameObject != null) DestroyImmediate(curentLevelGameObject);
         if( curentLevelInt < levels.levels.Count  -1) curentLevelInt++;
         else 
@@ -53,13 +49,10 @@ class LevelMagigerlEditor: Editor
     {
         var levelMagiger = (LevelMagiger)target;
         if(levelMagiger == null) return;
-
-        
         
         if(GUILayout.Button("OnChangeLefel"))
         {   
             levelMagiger.OnChangeLefel();
- 
         }
     }
 }

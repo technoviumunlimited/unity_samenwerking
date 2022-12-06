@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotMove 
 {
-    RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
+    public RobotControler rbc;
 
     public void HandelMovement()
     {   

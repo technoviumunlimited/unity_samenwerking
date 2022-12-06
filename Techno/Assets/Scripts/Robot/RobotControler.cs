@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class RobotControler : MonoBehaviour
 {
 
+
     public float timeForAction;
     public float moveDistance;
     public float maxJumpHeight;
@@ -15,8 +16,6 @@ public class RobotControler : MonoBehaviour
     public GetControl getControl;
     public SetControl setControl;
     public TimeDisplay timeDisplay;
-    
-    
     public LayerMask layerMask;
     
 
@@ -26,14 +25,15 @@ public class RobotControler : MonoBehaviour
     bool isJumping;
     bool isTurning;
 
+
+    //references
     [HideInInspector]public Animator animator;
-    [HideInInspector]public AudioSource audioSource;
     [HideInInspector]public RobotJump robotJump;
     [HideInInspector]public RobotMove robotMove;
     [HideInInspector]public RobotTurn robotTurn;
     [HideInInspector]public RobotFinich robotFinich;
     [HideInInspector]public LevelMagiger levelMagiger;
-    [HideInInspector]public RobInstructions RobInstructions;
+    [HideInInspector]public RobInstructions robInstructions;
 
     [HideInInspector] public float actionMultiplier;
     [HideInInspector] public float scaleMultiplier;
@@ -41,65 +41,76 @@ public class RobotControler : MonoBehaviour
     [HideInInspector] public int NUMBER_OF_FRAMS_IN_FIXED_UPDATE = 50;
     [HideInInspector] public int framesCount = 0;
 
+    
 
+
+    //SetUp
     void Awake()
     {   
+        SetReferences();
+        SetNumbers();
+        robInstructions.Awake();
+    }   
 
-
+    void SetReferences()
+    {
         robotJump = new RobotJump();
+        robotJump.rbc = this;
         robotMove = new RobotMove();
+        robotMove.rbc = this;
         robotTurn = new RobotTurn();
+        robotTurn.rbc = this;
         robotFinich = new RobotFinich();
-        RobInstructions = new RobInstructions();
-
+        robotFinich.rbc = this;
+        robInstructions = new RobInstructions();
+        robInstructions.rbc = this;
+        
         levelMagiger = GameObject.Find("LevelManiger").GetComponent<LevelMagiger>();
         animator = GetComponent<Animator>();
-        
-
-        actionMultiplier = NUMBER_OF_FRAMS_IN_FIXED_UPDATE / (NUMBER_OF_FRAMS_IN_FIXED_UPDATE * timeForAction);
-        scaleMultiplier = (transform.localScale.x );
-        moveDistance =  transform.localScale.x * moveDistance;
-        animator.speed = 1/timeForAction;
-
-        
-        RobInstructions.Awake();
-    }   
-    void Start() 
-    {
-        RobInstructions.startPosition = transform.position;
-        RobInstructions.startRotation = transform.rotation;
     }
 
-    Vector3 lastPosition;
+    void SetNumbers()
+    {
+        actionMultiplier = NUMBER_OF_FRAMS_IN_FIXED_UPDATE / (NUMBER_OF_FRAMS_IN_FIXED_UPDATE * timeForAction);
+        scaleMultiplier = (transform.localScale.x );
+        animator.speed = 1/(timeForAction);
+        moveDistance =  transform.localScale.x * moveDistance;
+        
+    }
+
+    void Start() 
+    {
+        robInstructions.startPosition = transform.position;
+        robInstructions.startRotation = transform.rotation;
+    }
+
+
+
     void FixedUpdate()
     {
         SwitchFunctions();
-        Debug.DrawLine(lastPosition , transform.position, Color.red,5);
-        lastPosition = transform.position;
+
     }
 
+
+    // Handel ChangeFunctions
     public void OnChangeFunction(string NextFunction)
     {   
         
         switch(NextFunction)
         {   
-
             
             case "Idle":
                 CurentFunction = 0; // idle
-
                 transform.rotation = Quaternion.AngleAxis( Mathf.Round( (transform.rotation.eulerAngles.y)/ 90) * 90, transform.up);
                 //transform.position = new Vector3(Mathf.Round(transform.position.x * (1/scaleMultiplier)),Mathf.Round(transform.position.y* (1/scaleMultiplier)),Mathf.Round(transform.position.z* (1/scaleMultiplier))) * scaleMultiplier;
-
                 animator.SetInteger("CurentState",0 );
             
             break;
 
             case "Right":
                 CurentFunction = 2; // turn rhit
-
-                animator.SetInteger("CurentState",0 );
-                
+                animator.SetInteger("CurentState",0 );     
             break;
 
             case "Left"  :
@@ -149,13 +160,11 @@ public class RobotControler : MonoBehaviour
 
             case 3:
             robotMove.HandelMovement();
-            
             break;
 
             case 4:
             robotJump.HandelJump();
             robotMove.HandelMovement();
-            
             break;
 
             case 5: 
@@ -164,18 +173,22 @@ public class RobotControler : MonoBehaviour
         } 
     }
 
+
+    // Handel Loop
     public IEnumerator TimeForAction()
     {    
         yield return new WaitForSeconds(timeForAction);
+
         framesCount = 0;
         OnChangeFunction("Idle");
-        SetBasis();
-        // transform.position = new Vector3(transform.position.x,robotJump.HeightObjectBelow() ,transform.position.z);
-        yield return new WaitForSeconds(timeBetweenAction);
-        RobInstructions.HandelPlay();
+        RoundPositionEnRotation();
 
+        yield return new WaitForSeconds(timeBetweenAction);
+
+        robInstructions.HandelPlay();
     }
-    void SetBasis()
+
+    void RoundPositionEnRotation()
     {
 
         Vector3 rot = new Vector3();
@@ -186,72 +199,105 @@ public class RobotControler : MonoBehaviour
 
     }
 
+
+    //Checks if is Walkeble/ is jumpebol
     bool IsWalkable()
     {
-        
-        if(!(!IsSomethingFront() && IsSomethingBelowFront(0.5f)))
+        int y = 0;
+        for (int i = 1; i < (int)(transform.localScale.x/moveDistance)  + 1; i++)
         {
-            PlayAudio(audioClip[3]);
+            if(!(!IsSomethingFront(1 * i) && IsSomethingBelowFront(0.5f , 1 * i)))
+            {
+                PlayAudio(audioClip[3]);
+                
+                return false;
+            }
+            else y++;
+            
+        
         }
-        return !IsSomethingFront() && IsSomethingBelowFront(0.5f);
+        Debug.Log((int)(transform.localScale.x/moveDistance));
+        return (int)(transform.localScale.x/moveDistance) == y;
 
     }
 
     bool IsJumpable()
     {
-        if(!(IsSomethingBelowFront(maxJumpHeight + 1* transform.localScale.x)))
+
+        int y = 0;
+        for (int i = 1; i < (int)(transform.localScale.x/moveDistance) + 1; i++)
         {
-            PlayAudio(audioClip[3]);
+            if(!(IsSomethingBelowFront(maxJumpHeight + 1, 1 * i)))
+            {
+                PlayAudio(audioClip[3]);
+                return false;
+            }
+            else y++;
+
         }
+        return (int)(transform.localScale.x/moveDistance) == y;
+
         
-        return IsSomethingBelowFront(maxJumpHeight + 1* transform.localScale.x);
+        
     }
 
-    bool IsSomethingFront()
+    bool IsSomethingFront(float distan)
     {   
-        Vector3 startPosition =transform.position  + new Vector3(0, 0.5f, 0) * scaleMultiplier;
-        return Physics.Raycast(startPosition, transform.forward, 1 * scaleMultiplier, layerMask);
+        Vector3 startPosition =transform.position  + new Vector3(0, 0.5f , 0) * scaleMultiplier;
+        Debug.DrawRay(startPosition , transform.forward * distan*scaleMultiplier, Color.red, 3);
+        return Physics.Raycast(startPosition, transform.forward , distan * scaleMultiplier, layerMask);
     }
 
-    bool IsSomethingBelowFront(float _Lenht)
+    bool IsSomethingBelowFront(float _Lenht, float distan)
     {   
-        Vector3 startPosition =transform.position + transform.forward * (1f *   scaleMultiplier) + new Vector3(0, 1.5f, 0)  * scaleMultiplier;
-        
-        return Physics.Raycast(startPosition, -transform.up, (_Lenht + 1.5f)  * scaleMultiplier, layerMask);
+        Vector3 startPosition =transform.position + transform.forward * (distan *   scaleMultiplier) + new Vector3(0, 1.5f , 0)  * scaleMultiplier;
+        Debug.DrawRay(startPosition , -transform.up  * (_Lenht + 1.5f)  * scaleMultiplier, Color.green, 3);
+        return Physics.Raycast(startPosition, -transform.up   , (_Lenht + 1.5f)  * scaleMultiplier, layerMask);
         
     }
 
 
-
+    //Handels inputs and sent them to RobInstructions
     public void OnPlaye()
-    {
+    {   
+       
         robotJump.startY = transform.position.y;
-        RobInstructions.OnPlayPrest();
+        robInstructions.OnPlayPrest();
     }
 
     public void OnChangeInstruction(int i, string _Name)
     {
-        RobInstructions.OnChangeInstruction(i, _Name);
+        robInstructions.OnChangeInstruction(i, _Name);
     }
 
     public void ResetInstructions()
     {
-        RobInstructions.ResetInstructions();
+        robInstructions.ResetInstructions();
     }
-
 
     public void OnResetCompleed()
     {   
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+
+    //Handels Audio
     public void PlayAudio(AudioClip clip)
     {
         var Audio = gameObject.AddComponent<AudioSource>();
-        Audio.clip = clip;
-        Audio.pitch = 1/timeForAction;  
-        Audio.Play();
-        Destroy(Audio,timeForAction);
+
+        try
+        {
+            Audio.clip = clip;
+            Audio.pitch = 1/(timeForAction);  
+            Audio.Play();
+            Destroy(Audio,timeForAction);
+        }
+        catch
+        {
+            Debug.LogError("AudioSource not fount");
+        }
+
     }
 
 }

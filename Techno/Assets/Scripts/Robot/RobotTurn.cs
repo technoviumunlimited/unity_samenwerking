@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RobotTurn 
 {
-    RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
-
+    public RobotControler rbc;
     public void HandelRotation(float _Angel)
     {   
         float ChangeAngelOnEachFrame = _Angel / rbc.NUMBER_OF_FRAMS_IN_FIXED_UPDATE;

@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class Hexagon1 : MonoBehaviour
 {
-    public float timeForRotation = 1;
-    public RobotControler robotControler;
-    public int CurentActionControler;
-
+    [HideInInspector]public float timeForRotation = 1; 
+    [HideInInspector]public int CurentActionControler;
+    [HideInInspector]public int curentFunction = 0;
+    [HideInInspector]public RobotControler robotControler;
+    public static bool isResetting = false;
     AudioSource audioSource;
-
-
     Quaternion curentRotation;
-    
     Quaternion startRotation;
     float xRotationPerFrame;
     float xRotationPerFrameReset;
-
     int derection; // 1 = naar beneden draaien, 2 naar boven 
-    
-    [HideInInspector] public int curentFunction = 0;
-
     bool isTurning = false;
-    public static bool isResetting = false;
     bool onResetPrest;
 
     //Constante vairibols
@@ -31,10 +24,15 @@ public class Hexagon1 : MonoBehaviour
 
     void Awake() 
     {   
-        startRotation = transform.localRotation;
+        SetValus();
+    }
 
-        xRotationPerFrame = ANGEL_DEGRY_FOR_HEXSAGON  / (NUMBER_OF_FRAMS_IN_FIXEDUPDATE * timeForRotation);
+    void SetValus()
+    {   
         audioSource = GetComponent<AudioSource>();
+
+        startRotation = transform.localRotation;
+        xRotationPerFrame = ANGEL_DEGRY_FOR_HEXSAGON  / (NUMBER_OF_FRAMS_IN_FIXEDUPDATE * timeForRotation);
         audioSource.pitch = 1/timeForRotation;
     }
 
@@ -52,6 +50,7 @@ public class Hexagon1 : MonoBehaviour
     public void OnTurnPrest(int _Derection)
     {
         if(!isTurning && !isResetting && RobInstructions.isPlayeing == false) 
+
         {   audioSource.Play();
             derection = _Derection;
             isTurning = true;
@@ -59,30 +58,24 @@ public class Hexagon1 : MonoBehaviour
         }
     }
 
-    public void OnResetPrest()
+    IEnumerator HandelActionState()
     {   
-        onResetPrest = true;
-        derection = 0;
-        curentFunction = 0;
-        StartCoroutine(HandelActionState());
-        xRotationPerFrameReset = (transform.localRotation.eulerAngles.x - startRotation.eulerAngles.x)  / (NUMBER_OF_FRAMS_IN_FIXEDUPDATE * timeForRotation);
-
+        
+        yield return new WaitForSeconds(timeForRotation);
+        isTurning = false;
+        if(onResetPrest)
+        {   transform.localRotation = startRotation;
+            onResetPrest =false;
+            isResetting = false;
+        }
+        CurentFunction(derection);
+        
     }
-
 
     void HandelHexagon()
     {   
         transform.localRotation = CalculatesQuaternion(transform.localRotation);
-        
     }
-    
-    void HandelReset()
-    {   
-        if(transform.localRotation != startRotation)  audioSource.Play();
-        Vector3 NextRotation = new Vector3(xRotationPerFrameReset,0,0); 
-        transform.localRotation = Quaternion.Euler(NextRotation) * transform.localRotation;
-    }
-
 
     Quaternion CalculatesQuaternion(Quaternion _Hexsagon)
     {
@@ -92,18 +85,22 @@ public class Hexagon1 : MonoBehaviour
         return _Hexsagon;
     }
 
-    IEnumerator HandelActionState()
+
+    public void OnResetPrest()
+    {   
+        onResetPrest = true;
+        if(transform.localRotation != startRotation)  audioSource.Play();
+        derection = 0;
+        curentFunction = 0;
+        StartCoroutine(HandelActionState());
+        xRotationPerFrameReset = (transform.localRotation.eulerAngles.x - startRotation.eulerAngles.x)  / (NUMBER_OF_FRAMS_IN_FIXEDUPDATE * timeForRotation);
+    }
+
+    void HandelReset()
     {   
         
-        
-        yield return new WaitForSeconds(timeForRotation);
-        isTurning = false;
-        if(onResetPrest) transform.localRotation = startRotation;
-        onResetPrest =false;
-        
-        isResetting = false;
-        CurentFunction(derection);
-        
+        Vector3 NextRotation = new Vector3(xRotationPerFrameReset,0,0); 
+        transform.localRotation = Quaternion.Euler(NextRotation) * transform.localRotation;
     }
 
 

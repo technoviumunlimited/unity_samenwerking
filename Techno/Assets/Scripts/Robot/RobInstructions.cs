@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class RobInstructions 
 {
-    RobotControler rbc = GameObject.FindGameObjectWithTag("Player").GetComponent<RobotControler>();
-    List<Instructions> instructions = new List<Instructions>();
+    public RobotControler rbc;
+
+    List<String> instructions =  new List<string>();
     
     public static bool  isPlayeing = false;
 
@@ -20,16 +23,21 @@ public class RobInstructions
     public void Awake()
     {   
         ResetInstructions();
-
     }
     public void ResetInstructions()
     {   
-        instructionsCount=0;
-        instructions = new List<Instructions>();
-        rbc.animator.SetInteger("CurentState",0 );
+        instructions = new List<String>();
         Hexagon1.isResetting = true;
+        StartOver();
+        instructionsCount=0;
+    }
+
+    void StartOver()
+    {
         rbc.transform.position = startPosition;
         rbc.transform.rotation = startRotation;
+        
+        curentInstruction=0;
         isPlayeing = false;
     }
 
@@ -38,9 +46,7 @@ public class RobInstructions
     
         if(instructions.Count < rbc.getControl.NUMBER_OF_COLOMS * rbc.getControl.NUMBER_OF_ROWS)
         {
-            instructions.Add(new Instructions(_Name));
-
-            
+            instructions.Add(new String(_Name));            
         }
         else 
         {   
@@ -48,12 +54,14 @@ public class RobInstructions
             if( _Name !="Emty")
             {
                 if(LevelMagiger.allLeffelsCompleed == true) LevelMagiger.allLeffelsCompleed = false;
-                if(instructions[i-1].Name == "Emty" ) instructionsCount ++;
+                if(instructions[i-1] == "Emty" ) instructionsCount ++;
                 
             }
-            else if( instructions[i-1].Name != "Emty" &&_Name == "Emty")instructionsCount --;
+            else if( instructions[i-1] != "Emty" &&_Name == "Emty")instructionsCount --;
             
-            instructions[i -1].Name = _Name; 
+
+            
+            instructions[i -1] = _Name; 
         }
 
     }
@@ -76,43 +84,38 @@ public class RobInstructions
     public void HandelPlay()
     {   
 
-     
             
         if((curentInstruction <  instructions.Count)) 
         {       
 
                 try
                 {
-                    while(instructions[curentInstruction].Name == "Emty") 
+                    while(instructions[curentInstruction] == "Emty") 
                         {
                         
-                        if(curentInstruction >=  instructions.Count) 
+                        if(curentInstruction >=  instructions.Count -1) 
                         {   
-                            rbc.transform.position = startPosition;
-                            rbc.transform.rotation = startRotation;
-                            isPlayeing = false;
-                            curentInstruction=0;
+                            StartOver();
                             return;
                         }
                         else curentInstruction++;
                     }
+
+                    rbc.setControl.controlPannels[curentInstruction].GetComponent<ParticleSystem>().Play();
+                    rbc.OnChangeFunction(instructions[curentInstruction]);
+                    curentInstruction++; 
                 }
-                catch
+                catch (Exception e)
                 {
-                    Debug.LogError("Oud of range");
+                    Debug.LogError("Oud of range" + e);
                 }
 
-            rbc.setControl.controlPannels[curentInstruction].GetComponent<ParticleSystem>().Play();
-            rbc.OnChangeFunction(instructions[curentInstruction].Name);
-            curentInstruction++; 
+
             
         }
         else
         {   
-            rbc.transform.position = startPosition;
-            rbc.transform.rotation = startRotation;
-            isPlayeing = false;
-            curentInstruction=0;
+            StartOver();
         }
     }
 
@@ -120,12 +123,3 @@ public class RobInstructions
 }
 
 
-public class Instructions
-{
-    public string Name;
-
-    public Instructions(string _Name)
-    {
-        Name = _Name;
-    }
-}

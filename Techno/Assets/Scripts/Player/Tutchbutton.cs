@@ -26,14 +26,15 @@ public class Tutchbutton : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(palyer.transform.position, palyer.transform.forward,  out hit, klickDistans))
         {
-            Debug.DrawLine(palyer.transform.position, hit.point, Color.green,1);
-
+            
             if(hit.collider.tag == "Button" && hit.collider != null)
-            {     
+            {   
+                Debug.DrawLine(palyer.transform.position, hit.point, Color.green,1);
                 hit.collider.GetComponent<Button>().DoIets();
             }
+            else Debug.DrawLine(transform.position, hit.point, Color.red,1);  
         }
-        else Debug.DrawRay(palyer.transform.position, palyer.transform.forward,Color.red,1);
+        
     }
 }
 
