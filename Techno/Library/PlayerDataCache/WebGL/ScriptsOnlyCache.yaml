@@ -1,8 +1,20 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Button
+    - DataPersistenceManager
+    - GetControl
+    - Hexagon1
+    - LevelMagiger
+    - Levels
+    - MousClick
+    - PlayerControler
     - RobotControler
-    - RobotInstructions
+    - SetControl
+    - SetRobotStartPosition
+    - StateSwitcher
+    - TimeDisplay
+    - Tutchbutton
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
@@ -15,6 +27,14 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -22,14 +42,13 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
   serializedClasses:
-    Assembly-CSharp:
-    - _Instructions
+    Unity.InputSystem:
+    - UnityEngine.InputSystem.InputSettings/iOSSettings
+    - UnityEngine.InputSystem.iOS.PrivacyDataUsage
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -49,91 +68,174 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.Events.UnityEvent
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
-    - UnityEngine.UI.AnimationTriggers
-    - UnityEngine.UI.Button/ButtonClickedEvent
-    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-    - UnityEngine.UI.Navigation
-    - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLastInstruction
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLevel
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: Play
+    fullTypeName: RobotControler
+    methodName: OnPlaye
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: RobotControler
+    methodName: OnResetCompleed
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLastInstruction
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLevel
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: Play
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLastInstruction
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: ResetLevel
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: Play
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   - assembly: Assembly-CSharp
-    fullTypeName: RobotInstructions
-    methodName: OnClick
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: RobotControler
+    methodName: ResetInstructions
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
+  - assembly: Assembly-CSharp
+    fullTypeName: Hexagon1
+    methodName: OnTurnPrest
   sceneClasses:
     Assets/Scenes/Level1.unity:
     - Class: 1
@@ -156,13 +258,23 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
@@ -171,190 +283,70 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1624}
+      Script: {instanceID: 1854}
     - Class: 114
-      Script: {instanceID: 2424}
+      Script: {instanceID: 2140}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2430}
     - Class: 114
-      Script: {instanceID: 2958}
+      Script: {instanceID: 2582}
     - Class: 114
-      Script: {instanceID: 3208}
+      Script: {instanceID: 2654}
     - Class: 114
-      Script: {instanceID: 3574}
+      Script: {instanceID: 2966}
     - Class: 114
-      Script: {instanceID: 4796}
+      Script: {instanceID: 3216}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4016}
     - Class: 114
-      Script: {instanceID: 5216}
+      Script: {instanceID: 4804}
     - Class: 114
-      Script: {instanceID: 5422}
+      Script: {instanceID: 4808}
     - Class: 114
-      Script: {instanceID: 6138}
+      Script: {instanceID: 4894}
     - Class: 114
-      Script: {instanceID: 6864}
+      Script: {instanceID: 4900}
     - Class: 114
-      Script: {instanceID: 7062}
+      Script: {instanceID: 5146}
     - Class: 114
-      Script: {instanceID: 7472}
+      Script: {instanceID: 5232}
+    - Class: 114
+      Script: {instanceID: 6150}
+    - Class: 114
+      Script: {instanceID: 6628}
+    - Class: 114
+      Script: {instanceID: 6766}
+    - Class: 114
+      Script: {instanceID: 6882}
+    - Class: 114
+      Script: {instanceID: 7080}
+    - Class: 114
+      Script: {instanceID: 7084}
+    - Class: 114
+      Script: {instanceID: 7494}
+    - Class: 114
+      Script: {instanceID: 7792}
+    - Class: 114
+      Script: {instanceID: 8140}
+    - Class: 114
+      Script: {instanceID: 8510}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
     - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
-    - Class: 213
+    - Class: 198
       Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Level2.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1624}
-    - Class: 114
-      Script: {instanceID: 2576}
-    - Class: 114
-      Script: {instanceID: 2958}
-    - Class: 114
-      Script: {instanceID: 3208}
-    - Class: 114
-      Script: {instanceID: 3574}
-    - Class: 114
-      Script: {instanceID: 4796}
-    - Class: 114
-      Script: {instanceID: 5422}
-    - Class: 114
-      Script: {instanceID: 6138}
-    - Class: 114
-      Script: {instanceID: 6864}
-    - Class: 114
-      Script: {instanceID: 7062}
-    - Class: 114
-      Script: {instanceID: 7472}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Level3.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1624}
-    - Class: 114
-      Script: {instanceID: 2576}
-    - Class: 114
-      Script: {instanceID: 2958}
-    - Class: 114
-      Script: {instanceID: 3208}
-    - Class: 114
-      Script: {instanceID: 3574}
-    - Class: 114
-      Script: {instanceID: 4796}
-    - Class: 114
-      Script: {instanceID: 5422}
-    - Class: 114
-      Script: {instanceID: 6138}
-    - Class: 114
-      Script: {instanceID: 6864}
-    - Class: 114
-      Script: {instanceID: 7062}
-    - Class: 114
-      Script: {instanceID: 7472}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -413,6 +405,12 @@ ScriptsOnlyBuild:
     className: Grain
   - hash:
       serializedVersion: 2
+      Hash: db450baacf1cd61069fe686ac481a76b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StateSwitcher
+  - hash:
+      serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -465,6 +463,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: 
     className: CinemachineCameraOffset
+  - hash:
+      serializedVersion: 2
+      Hash: 774c1c08aaa274604a22ee94479fd0fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerControler
   - hash:
       serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
@@ -525,6 +529,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 2ca2d17cc573dcdb515b4d0878e8d15d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SetControl
   - hash:
       serializedVersion: 2
       Hash: a1f19ad47d3094e235f21b74dfc423a8
@@ -767,6 +777,12 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 1f5235880506c2fda42693ae6207d8d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataPersistenceManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -893,7 +909,13 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 9d97ddd559fa37b7fc4ca97958eaf32f
+      Hash: 970227a4459058bdc2cd00e602f1a7af
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Levels
+  - hash:
+      serializedVersion: 2
+      Hash: 64599fa0379ba6edfd87aa156ccd7b96
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RobotControler
@@ -927,6 +949,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MousClick
   - hash:
       serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
@@ -969,6 +997,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.OnScreen
     className: OnScreenStick
+  - hash:
+      serializedVersion: 2
+      Hash: 2df0e1cb29d3decbc90fa3082e3ed4b1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelMagiger
   - hash:
       serializedVersion: 2
       Hash: af93f9c42e90877a9ba31e37adfd900c
@@ -1017,12 +1051,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
     className: InputSystemObject
-  - hash:
-      serializedVersion: 2
-      Hash: b50c1dc273a71e8e6e538d58b9d60cfd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RobotInstructions
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1211,6 +1239,12 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: faf16bf888f6275bee77db7ac860a565
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeDisplay
+  - hash:
+      serializedVersion: 2
       Hash: d85b490177c3124d2335460060a2b807
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
@@ -1239,6 +1273,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineOrbitalTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: 7bfcf5591f0674e84845f856abb10a9d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Tutchbutton
   - hash:
       serializedVersion: 2
       Hash: 639df67a034e1312464f0bf890c2f14e
@@ -1287,6 +1327,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: b43454ee94b1b272c7a2ffb07ce9fe2f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1361,6 +1407,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: e5869bb9af72d49ad5ab7efb20f9a34b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GetControl
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
@@ -1419,6 +1471,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: d68199dbf52493d3f74482eb197610e1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Hexagon1
   - hash:
       serializedVersion: 2
       Hash: 8963690ef6f6b05ce03bfd8b5c26e20c
@@ -1503,6 +1561,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: cae3a9be46151d3c0d6791cc58186be9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SetRobotStartPosition
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1674,6 +1738,4 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/Level1.unity
-  - Assets/Scenes/Level2.unity
-  - Assets/Scenes/Level3.unity
   playerPath: C:/Users/tilow/Documents/GitHub/unity_samenwerking/Bults

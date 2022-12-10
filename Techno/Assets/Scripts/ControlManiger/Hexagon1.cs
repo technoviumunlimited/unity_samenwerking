@@ -36,6 +36,8 @@ public class Hexagon1 : MonoBehaviour
         audioSource.pitch = 1/timeForRotation;
     }
 
+
+
     void FixedUpdate() 
     {
         if(isTurning && !isResetting) HandelHexagon();
@@ -69,6 +71,8 @@ public class Hexagon1 : MonoBehaviour
             isResetting = false;
         }
         CurentFunction(derection);
+        Vector3 v = new Vector3( Mathf.Round((transform.localRotation.eulerAngles.x) / ANGEL_DEGRY_FOR_HEXSAGON) *ANGEL_DEGRY_FOR_HEXSAGON , transform.localRotation.eulerAngles.y , transform.localRotation.eulerAngles.z);
+        transform.localRotation = Quaternion.Euler( v );
         
     }
 

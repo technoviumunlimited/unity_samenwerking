@@ -321,8 +321,9 @@
 "Assets/Scripts/ControlManiger/TimeDisplay.cs"
 "Assets/Scripts/LevelManiger/LevelMagiger.cs"
 "Assets/Scripts/LevelManiger/Levels.cs"
-"Assets/Scripts/MousClick.cs"
+"Assets/Scripts/Player/MousClick.cs"
 "Assets/Scripts/Player/PlayerControler.cs"
+"Assets/Scripts/Player/StateSwitcher.cs"
 "Assets/Scripts/Player/Tutchbutton.cs"
 "Assets/Scripts/Robot/RobInstructions.cs"
 "Assets/Scripts/Robot/RobotControler.cs"
@@ -336,7 +337,6 @@
 "Assets/Scripts/Save/GameData.cs"
 "Assets/Scripts/Save/IDataPerisitans.cs"
 "Assets/Scripts/SceneManiger.cs"
-"Assets/Scripts/StateSwitcher.cs"
 -langversion:9.0
 
 /deterministic

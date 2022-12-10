@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6820612246739945628}
   - component: {fileID: 2389270127293941572}
   - component: {fileID: 8277047207982713841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TeleporterConect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5970901136952320228}
-  m_Layer: 0
+  - component: {fileID: 6556668646962744064}
+  m_Layer: 6
   m_Name: Teleporter 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +117,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6556668646962744064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474108868238749715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0259976, y: 1, z: 1.0094999}
+  m_Center: {x: -0.5129988, y: 0, z: -0.099749744}
 --- !u!1 &9101265202462381451
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +141,7 @@ GameObject:
   - component: {fileID: 967781746793227102}
   - component: {fileID: 8060741442622601084}
   - component: {fileID: 6085064817679924360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Teleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,7 +23,9 @@ public class RobInstructions
     public void Awake()
     {   
         ResetInstructions();
+
     }
+
     public void ResetInstructions()
     {   
         instructions = new List<String>();

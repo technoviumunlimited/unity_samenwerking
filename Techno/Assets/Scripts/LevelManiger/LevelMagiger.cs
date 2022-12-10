@@ -6,6 +6,8 @@ using UnityEditor;
 # endif
 
 
+
+
 [ExecuteInEditMode]
 public class LevelMagiger : MonoBehaviour
 {
@@ -20,6 +22,11 @@ public class LevelMagiger : MonoBehaviour
     {
         allLeffelsCompleed = true;
         levels = GetComponent<Levels>();
+
+        # if !UNITY_EDITOR
+            curentLevelInt = -1;
+            OnChangeLefel();
+        # endif
     }
 
 
